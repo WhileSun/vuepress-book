@@ -81,6 +81,8 @@ jobs:
         key: ${{ secrets.REMOTE_PRIVATE_KEY }} # ssh key
         source: "docs/.vuepress/dist/*" # 发送文件
         target: "/home/nginx/html/vuepress" # 目标目录
+        strip_components: 3 # 移除指定数量的前导路径元素---不添加会保留前面的文件夹
+        rm: true # 删除之前的文件
 ```
 
 ### ssh key生成
