@@ -42,3 +42,4 @@ jobs:
         key: ${{ secrets.REMOTE_PRIVATE_KEY }} # 密码
         source: docs/.vuepress/dist/* # 发送文件
         target: "/home/nginx/html/vuepress" # 目标目录
+        rm: true # 删除之前的文件
