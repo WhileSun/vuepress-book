@@ -22,10 +22,16 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-        cache: 'npm'
-    
+  
+    - name: 安装pnpm
+      uses: pnpm/action-setup@v4.0.0
+      with:
+        version: 9.4.0
+
     - name: 打包
-      run: npm run docs:build
+      run: |
+        pnpm install
+        pnpm run docs:build
 
      # https://github.com/appleboy/scp-action
     - name: 部署到服务器
