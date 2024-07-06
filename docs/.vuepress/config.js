@@ -19,7 +19,7 @@ export default defineUserConfig({
         ]
       },
       {
-        text:'运维',
+        text: '运维',
         prefix: '/devops/',
         children: [
           {
@@ -41,9 +41,15 @@ export default defineUserConfig({
           children: ['index', 'config'],
         },
       ],
+      '/devops/': [
+        {
+          prefix: 'podman/',
+          children: ['index','vuepress'],
+        }
+      ],
       // '/devops/':'heading',
-      '/':'heading'
+      '/': 'heading'
     },
-    sidebarDepth:3
+    sidebarDepth: 3
   }),
 })

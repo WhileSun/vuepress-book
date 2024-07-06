@@ -40,20 +40,3 @@ location = "dockerpull.com"
 # 允许通过 http 协议获取镜像
 insecure = true
 ```
-
-## 部署nginx
-
-### 拉取nginx
-``` bash
-podman pull nginx:alpine3.19
-```
-
-### 进入nginx容器查看目录
-``` bash
-# 进入容器 --rm 表示退出后会删除容器
-podman run -it --rm nginx:alpine3.19 /bin/sh
-# nginx配置目录所在位置
-/etc/nginx
-
-```
-
