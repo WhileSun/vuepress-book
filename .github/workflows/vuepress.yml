@@ -1,0 +1,43 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: vuepress
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - name: 拉取代码
+      uses: actions/checkout@v4
+    
+    - name: 添加node环境
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: 打包
+      run: npm run docs:build
+
+     # https://github.com/appleboy/scp-action
+    - name: 部署到服务器
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }} # 公网ip
+        username: ${{ secrets.REMOTE_USERNAME }} # 用户名
+        key: ${{ secrets.REMOTE_PRIVATE_KEY }} # 密码
+        source: "docs/.vuepress/dist" # 发送文件
+        target: "/home/nginx/html" # 目标目录
