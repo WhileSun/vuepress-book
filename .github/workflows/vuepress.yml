@@ -13,12 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    
     steps:
     - name: 拉取代码
       uses: actions/checkout@v4
@@ -26,7 +21,7 @@ jobs:
     - name: 添加node环境
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 18.x
         cache: 'npm'
     
     - name: 打包
