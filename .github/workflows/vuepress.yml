@@ -40,5 +40,5 @@ jobs:
         host: ${{ secrets.REMOTE_HOST }} # 公网ip
         username: ${{ secrets.REMOTE_USERNAME }} # 用户名
         key: ${{ secrets.REMOTE_PRIVATE_KEY }} # 密码
-        source: "docs/.vuepress/dist" # 发送文件
+        source: "docs/.vuepress/dist/*" # 发送文件
         target: "/home/nginx/html" # 目标目录
