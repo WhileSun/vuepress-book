@@ -38,7 +38,7 @@ export default defineUserConfig({
           // collapsible: true,
           // 前缀可以是相对路径，等同于 `prefix: /reference/bundler/`
           prefix: 'miniprogram/',
-          children: ['index', 'config'],
+          children: ['index', 'develop'],
         },
       ],
       '/devops/': [
