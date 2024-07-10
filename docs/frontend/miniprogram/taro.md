@@ -162,7 +162,8 @@ beforeMount-mounted-onLoad–onShow-onReady
 
 
 ### 自定义Tabbr
-src/app.config.ts
+[tabbar配置](https://taro-docs.jd.com/docs/custom-tabbar)
+- 文件位置 src/app.config.ts  
 ``` javascript
 tabBar: {
     custom:true,
